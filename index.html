@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora: Academic ERP SaaS Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0B0B0B 0%, #1a1a1a 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #FF6A00;
+        }
+        
+        header p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1em;
+        }
+        
+        .btn-primary {
+            background: #FF6A00;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 106, 0, 0.3);
+            background: #E55A00;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #FF6A00;
+        }
+        
+        .btn-secondary:hover {
+            background: #FF6A00;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 20px;
+            background: white;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #0B0B0B;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #0B0B0B;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            padding: 30px;
+            background: #f8f9fa;
+            border-left: 4px solid #FF6A00;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 106, 0, 0.15);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #0B0B0B;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .diagram-container {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+        
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .diagram-caption {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.95em;
+            font-style: italic;
+        }
+        
+        .team-section {
+            background: white;
+            padding: 80px 20px;
+            margin: 30px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 3px solid #FF6A00;
+        }
+        
+        .team-card h3 {
+            color: #0B0B0B;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .team-role {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+        
+        .team-email {
+            font-size: 0.85em;
+            color: #FF6A00;
+            word-break: break-all;
+        }
+        
+        .guide-card {
+            background: linear-gradient(135deg, #0B0B0B 0%, #1a1a1a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+            grid-column: 1 / -1;
+            border: 2px solid #FF6A00;
+        }
+        
+        .guide-card h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .guide-card .team-role {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .guide-card .team-email {
+            color: #e0e7ff;
+        }
+        
+        .content-section p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .content-section ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .content-section li {
+            margin-bottom: 12px;
+        }
+        
+        .highlight {ff4e6;
+            padding: 20px;
+            border-left: 4px solid #FF6A00;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        footer {
+            background: #0B0B0B;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 3px solid #FF6A00px;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fff4e6 0%, #fffbf0 100%);
+            color: #0B0B0B;
+            padding: 8px 16px;
+            border: 1px solid #FF6A00;
+            border-radius: 20px;
+            margin: 6px 6px 6px 0;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #0B0B0B 0%, #1a1a1a 100%);
+            color: white;
+            padding: 60px 20px 40px 20px;
+            border-top: 2px solid #FF6A00;
+        }
+
+        footer h3 {
+            font-size: 1.5em;
+            color: #FF6A00;
+            margin-bottom: 12px;
+        }
+
+        footer h4 {
+            font-size: 1em;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        footer a {
+            color: #A3A3A3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        footer a:hover {
+            color: #FF6A00;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 106, 0, 0.2);
+        }
+
+        .footer-brand {
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand-desc {
+            color: #A3A3A3;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            max-width: 400px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.85em;
+            color: #525252;
+            padding-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            header p { font-size: 1.1em; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Hero -->
+    <header>
+        <h1>Nexora</h1>
+        <p>A Centralized Academic Management System for Modern Educational Institutions</p>
+        <p style="font-size: 1.05em; opacity: 0.9;">Cloud-native SaaS ERP designed for streamlined institutional workflows, multi-tenant isolation, and role-aware access control</p>
+        <div class="btn-group">
+            <a href="#overview" class="btn btn-primary">Learn More</a>
+            <a href="Nexora_Paper_Preview.pdf" class="btn btn-secondary">📄 Research Paper (PDF)</a>
+            <a href="Nexora_Paper_Submission.docx" class="btn btn-secondary">📋 Submit Version (DOCX)</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Platform Access & Product Demo -->
+        <section id="platform" style="background: linear-gradient(135deg, #0B0B0B 0%, #1a1a1a 100%); color: white; text-align: center;">
+            <h2 style="font-size: 2.2em; margin-bottom: 20px; color: #FF6A00;">Experience Nexora Live</h2>
+            <p style="font-size: 1.1em; margin-bottom: 40px; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;">
+                This research paper documents our next-generation Academic ERP platform. Explore the live platform, 
+                authenticate with demo credentials, and experience multi-tenant isolation, RBAC governance, and cloud-native 
+                academic management in action.
+            </p>
+            <div class="btn-group" style="justify-content: center;">
+                <a href="https://nexora.chatakeinnoworks.com" target="_blank" class="btn btn-primary">🚀 Launch Live Platform</a>
+                <a href="https://aakashchatake.github.io/nexora-platform/#/access" target="_blank" class="btn btn-secondary">📊 Platform Access & Login</a>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.95em; opacity: 0.85;">
+                💡 <strong>Demo Credentials:</strong> Available on platform access page. Multi-tenant demo includes separate institutional contexts.
+            </p>
+        </section>
+
+        <!-- Product Capabilities Showcase -->
+        <section id="capabilities" style="background: white;">
+            <h2 class="section-title">Product Capabilities</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div style="padding: 25px; background: #f8f9fa; border-left: 4px solid #FF6A00; border-radius: 6px;">
+                    <h3 style="color: #0B0B0B; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">👥 Student Management</h3>
+                    <p style="color: #666; font-size: 0.95em;">Comprehensive student profile management with enrollment tracking, academic performance monitoring, and document management.</p>
+                </div>
+                <div style="padding: 25px; background: #f8f9fa; border-left: 4px solid #FF6A00; border-radius: 6px;">
+                    <h3 style="color: #0B0B0B; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">📖 Course Administration</h3>
+                    <p style="color: #666; font-size: 0.95em;">Create and manage courses with detailed curriculum planning, resource allocation, and faculty assignment per institutional context.</p>
+                </div>
+                <div style="padding: 25px; background: #f8f9fa; border-left: 4px solid #FF6A00; border-radius: 6px;">
+                    <h3 style="color: #0B0B0B; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">📊 Analytics Dashboard</h3>
+                    <p style="color: #666; font-size: 0.95em;">Real-time institutional insights with customizable reports, enrollment trends, and performance metrics specific to each tenant.</p>
+                </div>
+                <div style="padding: 25px; background: #f8f9fa; border-left: 4px solid #FF6A00; border-radius: 6px;">
+                    <h3 style="color: #0B0B0B; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">💬 Communication Hub</h3>
+                    <p style="color: #666; font-size: 0.95em;">Centralized messaging platform for seamless tenant-scoped communication between students, faculty, and administration.</p>
+                </div>
+                <div style="padding: 25px; background: #f8f9fa; border-left: 4px solid #FF6A00; border-radius: 6px;">
+                    <h3 style="color: #0B0B0B; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">🔌 Third-Party Integration</h3>
+                    <p style="color: #666; font-size: 0.95em;">Connect with educational tools, LMS platforms, and institutional systems with API-first architecture and webhooks.</p>
+                </div>
+                <div style="padding: 25px; background: #f8f9fa; border-left: 4px solid #FF6A00; border-radius: 6px;">
+                    <h3 style="color: #0B0B0B; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">🔐 Enterprise Security</h3>
+                    <p style="color: #666; font-size: 0.95em;">Multi-tenant isolation at API and database layers, RBAC with tenant-scoped roles, encryption, and compliance auditing.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What is Nexora -->
+        <section id="overview">
+            <h2 class="section-title">What is Nexora?</h2>
+            <div class="content-section">
+                <p>
+                    <strong>Nexora</strong> is a cloud-based <strong>Software-as-a-Service (SaaS) Academic ERP</strong> that centralizes institutional workflows 
+                    across admissions, student information management, attendance tracking, examination records, and academic reporting. 
+                    It replaces fragmented, manual systems with a unified, role-aware platform built for modern higher education.
+                </p>
+                <p>
+                    Deployed on <strong>Amazon Web Services (AWS)</strong>, Nexora supports multiple institutions simultaneously through a 
+                    <strong>multi-tenant architecture</strong> that ensures strict logical data separation while reducing operational overhead.
+                </p>
+                
+                <div class="highlight">
+                    <strong>Key Design Principles:</strong>
+                    <ul style="margin-top: 12px;">
+                        <li>✓ <strong>Multi-tenant SaaS isolation</strong> — Multiple institutions, single application, logical data separation</li>
+                        <li>✓ <strong>Role-Based Access Control (RBAC)</strong> — Granular permissions for administrators, faculty, and students</li>
+                        <li>✓ <strong>Cloud scalability</strong> — Horizontal scaling, auto-healing, and burst capacity for peak periods</li>
+                        <li>✓ <strong>Relational integrity</strong> — Normalized database design optimized for report generation and compliance</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Features -->
+        <section>
+            <h2 class="section-title">Core Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>🎓 Student Lifecycle</h3>
+                    <p>Manage admissions, enrollment, profile updates, and academic status tracking in one unified system.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📋 Attendance Tracking</h3>
+                    <p>Course/subject allocation, daily entry, automated summaries, and downloadable compliance reports.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Academic Records</h3>
+                    <p>Internal assessments, grade processing, transcript generation, and institutional reporting dashboards.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔐 Secure Access</h3>
+                    <p>Institution-scoped authentication, tenant-aware authorization, and comprehensive audit trails.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ High Performance</h3>
+                    <p>Optimized indexes, query patterns, and caching for fast attendance summaries and report generation.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌍 Cloud-Native</h3>
+                    <p>AWS-based deployment with multi-zone redundancy, auto-scaling, and zero-downtime updates.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Architecture -->
+        <section>
+            <h2 class="section-title">System Architecture</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px;">
+                Nexora follows a layered, cloud-native architecture for reliability, scalability, and secure multi-tenant isolation.
+            </p>
+            
+            <div class="diagram-container">
+                <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Title -->
+                    <text x="400" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Nexora Multi-Tenant SaaS Architecture
+                    </text>
+                    
+                    <!-- Client Layer -->
+                    <rect x="50" y="70" width="700" height="60" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="400" y="105" font-size="16" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Client Layer: Browser-Based Web Application
+                    </text>
+                    
+                    <!-- Arrow -->
+                    <line x1="400" y1="130" x2="400" y2="155" stroke="#0B0B0B" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- App Services Layer -->
+                    <rect x="50" y="155" width="700" height="80" fill="#f8f9fa" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="400" y="180" font-size="14" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Application Services Layer (API Gateway, Load Balancer)
+                    </text>
+                    <text x="400" y="210" font-size="12" text-anchor="middle" fill="#0B0B0B">
+                        Tenant Identification • Authentication • Authorization (RBAC) • Business Logic
+                    </text>
+                    
+                    <!-- Vertical separators for services -->
+                    <line x1="150" y1="155" x2="150" y2="235" stroke="#FF6A00" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="400" y1="155" x2="400" y2="235" stroke="#FF6A00" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="650" y1="155" x2="650" y2="235" stroke="#FF6A00" stroke-width="1" stroke-dasharray="3,3"/>
+                    
+                    <text x="75" y="225" font-size="11" fill="#0B0B0B">Services</text>
+                    <text x="325" y="225" font-size="11" fill="#0B0B0B">Authorization</text>
+                    <text x="575" y="225" font-size="11" fill="#0B0B0B">Services</text>
+                    
+                    <!-- Arrow -->
+                    <line x1="400" y1="235" x2="400" y2="260" stroke="#0B0B0B" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Data Access Layer -->
+                    <rect x="50" y="260" width="700" height="70" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="400" y="285" font-size="14" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Data Access & Tenant Scoping Layer
+                    </text>
+                    <text x="400" y="310" font-size="12" text-anchor="middle" fill="#0B0B0B">
+                        Tenant-Scoped SQL Queries • Caching • Transaction Management
+                    </text>
+                    
+                    <!-- Arrow -->
+                    <line x1="400" y1="330" x2="400" y2="355" stroke="#0B0B0B" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Persistence Layer -->
+                    <rect x="50" y="355" width="330" height="70" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="215" y="380" font-size="13" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Relational Database (PostgreSQL/MySQL)
+                    </text>
+                    <text x="215" y="405" font-size="11" text-anchor="middle" fill="#0B0B0B">
+                        Normalized Schema • Tenant Isolation • Indexes
+                    </text>
+                    
+                    <rect x="420" y="355" width="330" height="70" fill="#f8f9fa" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="585" y="380" font-size="13" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Object Storage (S3)
+                    </text>
+                    <text x="585" y="405" font-size="11" text-anchor="middle" fill="#0B0B0B">
+                        Certificates • Uploads
+                    </text>
+                    
+                    <!-- Arrow markers definition -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                            <polygon points="0 0, 10 5, 0 10" fill="#0B0B0B" />
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            
+            <div class="diagram-caption">
+                <strong>Architecture Layers:</strong> Client layer receives requests via browser; application services route through tenant-aware middleware; 
+                data access enforces tenant scope; persistence layer maintains normalized schema with strict isolation.
+            </div>
+        </section>
+
+        <!-- Multi-Tenancy Explanation -->
+        <section>
+            <h2 class="section-title">Multi-Tenant SaaS Design</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+                <div class="content-section">
+                    <h3 class="section-subtitle">Why Multi-Tenancy?</h3>
+                    <p>
+                        Educational institutions are logically isolated organizations. Nexora's multi-tenant design allows a single 
+                        deployment to serve multiple institutions cost-effectively while maintaining strict logical data separation.
+                    </p>
+                    <ul style="margin-top: 20px;">
+                        <li><strong>Cost efficiency:</strong> Shared infrastructure, per-institution configuration</li>
+                        <li><strong>Rapid deployment:</strong> New institutions onboard in minutes</li>
+                        <li><strong>Unified updates:</strong> One application version, institution-specific customizations</li>
+                        <li><strong>Operational simplicity:</strong> Single platform to monitor and maintain</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg">
+                        <text x="200" y="25" font-size="16" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                            Multi-Tenant Isolation Model
+                        </text>
+                        
+                        <!-- Shared Application -->
+                        <rect x="20" y="50" width="360" height="50" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                        <text x="200" y="83" font-size="13" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                            Shared Application Plane
+                        </text>
+                        
+                        <!-- Arrow -->
+                        <line x1="200" y1="100" x2="200" y2="120" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- Tenant Request -->
+                        <text x="200" y="140" font-size="12" text-anchor="middle" fill="#666" font-style="italic">
+                            Incoming Request with TenantID Header
+                        </text>
+                        
+                        <!-- Arrow -->
+                        <line x1="200" y1="150" x2="200" y2="170" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- Three Tenant Boxes -->
+                        <g>
+                            <!-- Tenant A -->
+                            <rect x="20" y="170" width="100" height="120" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                            <text x="70" y="190" font-size="12" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                                Institution A
+                            </text>
+                            <text x="70" y="210" font-size="10" text-anchor="middle" fill="#0B0B0B">TenantID: T1</text>
+                            <line x1="30" y1="220" x2="110" y2="220" stroke="#FF6A00" stroke-width="1"/>
+                            <text x="70" y="240" font-size="9" text-anchor="middle" fill="#0B0B0B">Students: 5000</text>
+                            <text x="70" y="255" font-size="9" text-anchor="middle" fill="#0B0B0B">Faculty: 200</text>
+                            <text x="70" y="270" font-size="9" text-anchor="middle" fill="#0B0B0B">Courses: 50</text>
+                        </g>
+                        
+                        <g>
+                            <!-- Tenant B -->
+                            <rect x="150" y="170" width="100" height="120" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                            <text x="200" y="190" font-size="12" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                                Institution B
+                            </text>
+                            <text x="200" y="210" font-size="10" text-anchor="middle" fill="#0B0B0B">TenantID: T2</text>
+                            <line x1="160" y1="220" x2="240" y2="220" stroke="#FF6A00" stroke-width="1"/>
+                            <text x="200" y="240" font-size="9" text-anchor="middle" fill="#0B0B0B">Students: 3500</text>
+                            <text x="200" y="255" font-size="9" text-anchor="middle" fill="#0B0B0B">Faculty: 150</text>
+                            <text x="200" y="270" font-size="9" text-anchor="middle" fill="#0B0B0B">Courses: 35</text>
+                        </g>
+                        
+                        <g>
+                            <!-- Tenant C -->
+                            <rect x="280" y="170" width="100" height="120" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                            <text x="330" y="190" font-size="12" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                                Institution C
+                            </text>
+                            <text x="330" y="210" font-size="10" text-anchor="middle" fill="#0B0B0B">TenantID: T3</text>
+                            <line x1="290" y1="220" x2="370" y2="220" stroke="#FF6A00" stroke-width="1"/>
+                            <text x="330" y="240" font-size="9" text-anchor="middle" fill="#0B0B0B">Students: 2000</text>
+                            <text x="330" y="255" font-size="9" text-anchor="middle" fill="#0B0B0B">Faculty: 80</text>
+                            <text x="330" y="270" font-size="9" text-anchor="middle" fill="#0B0B0B">Courses: 20</text>
+                        </g>
+                        
+                        <!-- Legend -->
+                        <text x="20" y="320" font-size="11" fill="#666">
+                            ✓ All requests include TenantID • ✓ Data queries scoped to tenant
+                        </text>
+                        <text x="20" y="340" font-size="11" fill="#666">
+                            ✓ No cross-tenant visibility • ✓ Tenant-specific configuration
+                        </text>
+                        
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#666" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Flow -->
+        <section>
+            <h2 class="section-title">Request & Data Flow</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px;">
+                Each request carries tenant context through the entire stack, ensuring all data access respects institutional boundaries.
+            </p>
+            
+            <div class="diagram-container">
+                <svg viewBox="0 0 900 450" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Title -->
+                    <text x="400" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Tenant-Scoped Data Flow in Nexora
+                    </text>
+                    
+                    <!-- Request box -->
+                    <rect x="50" y="60" width="200" height="80" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="150" y="90" font-size="12" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Faculty Request
+                    </text>
+                    <text x="150" y="115" font-size="10" text-anchor="middle" fill="#0B0B0B">
+                        GET /attendance/course/A102
+                    </text>
+                    <text x="150" y="130" font-size="10" text-anchor="middle" fill="#0B0B0B">
+                        Header: X-Tenant-ID: T1
+                    </text>
+                    
+                    <!-- Arrow 1 -->
+                    <path d="M 250 100 L 320 100" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Auth/RBAC -->
+                    <rect x="320" y="60" width="200" height="80" fill="#f8f9fa" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="420" y="90" font-size="12" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Auth & RBAC Gate
+                    </text>
+                    <text x="420" y="115" font-size="10" text-anchor="middle" fill="#0B0B0B">
+                        Verify: TenantID = T1
+                    </text>
+                    <text x="420" y="130" font-size="10" text-anchor="middle" fill="#0B0B0B">
+                        Check: Role = Faculty
+                    </text>
+                    
+                    <!-- Arrow 2 -->
+                    <path d="M 520 100 L 590 100" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Business Logic -->
+                    <rect x="590" y="60" width="260" height="80" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="720" y="90" font-size="12" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Business Logic (Services)
+                    </text>
+                    <text x="720" y="130" font-size="10" text-anchor="middle" fill="#0B0B0B">
+                        Query: GetAttendance(TenantID=T1, CourseID=A102)
+                    </text>
+                    <text x="720" y="145" font-size="10" text-anchor="middle" fill="#0B0B0B">
+                        Filter: Only T1 data
+                    </text>
+                    
+                    <!-- Arrow 3 -->
+                    <path d="M 720 140 L 720 190" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- SQL Query -->
+                    <rect x="590" y="190" width="260" height="100" fill="#f8f9fa" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="720" y="215" font-size="11" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Tenant-Scoped Database Query
+                    </text>
+                    <text x="720" y="240" font-size="9" text-anchor="middle" fill="#0B0B0B">
+                        SELECT a.Date, a.Status
+                    </text>
+                    <text x="720" y="255" font-size="9" text-anchor="middle" fill="#0B0B0B">
+                        FROM Attendance a
+                    </text>
+                    <text x="720" y="270" font-size="9" text-anchor="middle" fill="#0B0B0B">
+                        WHERE a.TenantID = 'T1'
+                    </text>
+                    <text x="720" y="285" font-size="9" text-anchor="middle" fill="#0B0B0B">
+                        AND a.CourseID = 'A102'
+                    </text>
+                    
+                    <!-- Arrow 4 -->
+                    <path d="M 720 290 L 720 340" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Response -->
+                    <rect x="590" y="340" width="260" height="80" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="720" y="365" font-size="12" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Response (T1 Data Only)
+                    </text>
+                    <text x="720" y="390" font-size="10" text-anchor="middle" fill="#0B0B0B">
+                        Attendance records for Institution A
+                    </text>
+                    <text x="720" y="407" font-size="10" text-anchor="middle" fill="#0B0B0B">
+                        No cross-tenant leakage
+                    </text>
+                    
+                    <!-- Left side: Key principle -->
+                    <rect x="50" y="190" width="200" height="240" fill="#fff4e6" stroke="#FF6A00" stroke-width="2" rx="4"/>
+                    <text x="150" y="220" font-size="11" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Key Principle:
+                    </text>
+                    <line x1="60" y1="230" x2="240" y2="230" stroke="#FF6A00" stroke-width="1"/>
+                    
+                    <text x="150" y="255" font-size="9" text-anchor="middle" fill="#0B0B0B">
+                        Tenant context (TenantID)
+                    </text>
+                    <text x="150" y="270" font-size="9" text-anchor="middle" fill="#0B0B0B">
+                        is propagated through
+                    </text>
+                    <text x="150" y="285" font-size="9" text-anchor="middle" fill="#0B0B0B">
+                        entire request lifecycle:
+                    </text>
+                    
+                    <text x="150" y="310" font-size="8" text-anchor="middle" fill="#0B0B0B">
+                        • API boundary
+                    </text>
+                    <text x="150" y="325" font-size="8" text-anchor="middle" fill="#0B0B0B">
+                        • Authorization checks
+                    </text>
+                    <text x="150" y="340" font-size="8" text-anchor="middle" fill="#0B0B0B">
+                        • Business logic
+                    </text>
+                    <text x="150" y="355" font-size="8" text-anchor="middle" fill="#0B0B0B">
+                        • Database queries
+                    </text>
+                    <text x="150" y="370" font-size="8" text-anchor="middle" fill="#0B0B0B">
+                        • Response filtering
+                    </text>
+                    
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                            <polygon points="0 0, 10 5, 0 10" fill="#666" />
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+        </section>
+
+        <!-- RBAC Section -->
+        <section>
+            <h2 class="section-title">Role-Based Access Control (RBAC)</h2>
+            
+            <div class="diagram-container">
+                <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Title -->
+                    <text x="400" y="30" font-size="18" font-weight="bold" text-anchor="middle" fill="#0B0B0B">
+                        Nexora RBAC Matrix
+                    </text>
+                    
+                    <!-- Table Header -->
+                    <rect x="50" y="50" width="700" height="35" fill="#0B0B0B" rx="4"/>
+                    <text x="150" y="72" font-size="11" font-weight="bold" fill="white">Role</text>
+                    <text x="280" y="72" font-size="11" font-weight="bold" fill="white">Student Mgmt</text>
+                    <text x="430" y="72" font-size="11" font-weight="bold" fill="white">Attendance</text>
+                    <text x="570" y="72" font-size="11" font-weight="bold" fill="white">Grades/Records</text>
+                    <text x="700" y="72" font-size="11" font-weight="bold" fill="white">Reports</text>
+                    
+                    <!-- Admin Row -->
+                    <rect x="50" y="85" width="700" height="50" fill="#fff4e6" stroke="#FF6A00" stroke-width="1"/>
+                    <text x="150" y="115" font-size="10" font-weight="bold" fill="#0B0B0B">Administrator</text>
+                    <text x="280" y="115" font-size="10" fill="#0B0B0B">✓ Full Access</text>
+                    <text x="430" y="115" font-size="10" fill="#0B0B0B">✓ Full Access</text>
+                    <text x="570" y="115" font-size="10" fill="#0B0B0B">✓ Full Access</text>
+                    <text x="700" y="115" font-size="10" fill="#0B0B0B">✓ Full Access</text>
+                    
+                    <!-- Faculty Row -->
+                    <rect x="50" y="135" width="700" height="50" fill="#f8f9fa" stroke="#FF6A00" stroke-width="1"/>
+                    <text x="150" y="165" font-size="10" font-weight="bold" fill="#0B0B0B">Faculty</text>
+                    <text x="280" y="165" font-size="10" fill="#0B0B0B">✓ View Own Dept</text>
+                    <text x="430" y="165" font-size="10" fill="#0B0B0B">✓ Enter Own Classes</text>
+                    <text x="570" y="165" font-size="10" fill="#0B0B0B">✓ View Own Grades</text>
+                    <text x="700" y="165" font-size="10" fill="#0B0B0B">✓ Department Only</text>
+                    
+                    <!-- Student Row -->
+                    <rect x="50" y="185" width="700" height="50" fill="#fff4e6" stroke="#FF6A00" stroke-width="1"/>
+                    <text x="150" y="215" font-size="10" font-weight="bold" fill="#0B0B0B">Student</text>
+                    <text x="280" y="215" font-size="10" fill="#0B0B0B">✓ Own Profile</text>
+                    <text x="430" y="215" font-size="10" fill="#0B0B0B">✓ View Own Records</text>
+                    <text x="570" y="215" font-size="10" fill="#0B0B0B">✓ View Own Grades</text>
+                    <text x="700" y="215" font-size="10" fill="#0B0B0B">✗ No Access</text>
+                    
+                    <!-- Registrar Row -->
+                    <rect x="50" y="235" width="700" height="50" fill="#f8f9fa" stroke="#FF6A00" stroke-width="1"/>
+                    <text x="150" y="265" font-size="10" font-weight="bold" fill="#0B0B0B">Registrar</text>
+                    <text x="280" y="265" font-size="10" fill="#0B0B0B">✓ Full Access</text>
+                    <text x="430" y="265" font-size="10" fill="#0B0B0B">✓ Verify Records</text>
+                    <text x="570" y="265" font-size="10" fill="#0B0B0B">✓ Process Records</text>
+                    <text x="700" y="265" font-size="10" fill="#0B0B0B">✓ Full Access</text>
+                    
+                    <!-- Note -->
+                    <text x="50" y="310" font-size="10" fill="#0B0B0B" font-style="italic">
+                        → All permissions are tenant-scoped: Faculty can view/edit only data from their institution.
+                    </text>
+                    <text x="50" y="330" font-size="10" fill="#0B0B0B" font-style="italic">
+                        → Least-privilege principle: Users have minimum necessary access to perform their role.
+                    </text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <h2 class="section-title">Research & Development Team</h2>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <h3>Sharvari Awate</h3>
+                    <p class="team-role">Lead Researcher</p>
+                    <p class="team-email">shree.spa7@gmail.com</p>
+                </div>
+                
+                <div class="team-card">
+                    <h3>Aakanksha Bhenki</h3>
+                    <p class="team-role">Systems Architect</p>
+                    <p class="team-email">aakankshabhenki@gmail.com</p>
+                </div>
+                
+                <div class="team-card">
+                    <h3>Sakshi Puranik</h3>
+                    <p class="team-role">Database Design</p>
+                    <p class="team-email">sakshipuranik2805@gmail.com</p>
+                </div>
+                
+                <div class="team-card">
+                    <h3>Durvankshi Tekale</h3>
+                    <p class="team-role">Backend Engineering</p>
+                    <p class="team-email">durvankshit@gmail.com</p>
+                </div>
+                
+                <div class="team-card">
+                    <h3>Rutuja Tellur</h3>
+                    <p class="team-role">Frontend & UX</p>
+                    <p class="team-email">rutujatellur@gmail.com</p>
+                </div>
+                
+                <div class="guide-card">
+                    <h3>Akash S. Chatake</h3>
+                    <p class="team-role">Project Guide & Corresponding Author</p>
+                    <p class="team-role">Lecturer</p>
+                    <p class="team-email">aakashchtake@gmail.com</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Facts -->
+        <section>
+            <h2 class="section-title">Key Statistics & Metrics</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); padding: 30px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2.5em; font-weight: bold; color: #1e40af; margin-bottom: 10px;">5</div>
+                    <div style="color: #1e40af; font-size: 0.95em;">Core Modules</div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dbeafe 100%); padding: 30px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2.5em; font-weight: bold; color: #15803d; margin-bottom: 10px;">6</div>
+                    <div style="color: #15803d; font-size: 0.95em;">Primary Roles</div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%); padding: 30px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2.5em; font-weight="bold" color: #b45309; margin-bottom: 10px;">4</div>
+                    <div style="color: #b45309; font-size: 0.95em;">Deployment Layers</div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #e9d5ff 0%, #f0fdf4 100%); padding: 30px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2.5em; font-weight: bold; color: #6b21a8; margin-bottom: 10px;">10+</div>
+                    <div style="color: #6b21a8; font-size: 0.95em;">Database Entities</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badges & Keywords -->
+        <section>
+            <h2 class="section-title">Technology & Concepts</h2>
+            
+            <div style="margin-top: 30px;">
+                <span class="badge">Academic ERP</span>
+                <span class="badge">SaaS Architecture</span>
+                <span class="badge">Multi-Tenancy</span>
+                <span class="badge">RBAC</span>
+                <span class="badge">Cloud Computing</span>
+                <span class="badge">AWS</span>
+                <span class="badge">Relational Database</span>
+                <span class="badge">Authentication</span>
+                <span class="badge">Data Isolation</span>
+                <span class="badge">Scalability</span>
+                <span class="badge">Education Technology</span>
+                <span class="badge">Institutional Management</span>
+            </div>
+        </section>
+
+        <!-- Downloads -->
+        <section style="text-align: center;">
+            <h2 class="section-title">Download Full Paper</h2>
+            
+            <div class="btn-group" style="margin-top: 40px;">
+                <a href="Nexora_Paper_Preview.pdf" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1em;">
+                    📄 Download Research Paper (PDF)
+                </a>
+                <a href="Nexora_Paper_Submission.docx" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1em;">
+                    📋 Download Submission Format (DOCX)
+                </a>
+            </div>
+            
+            <p style="margin-top: 30px; color: #666; font-size: 0.95em;">
+                Complete manuscript with abstract, literature review, system architecture, implementation details, and references.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>NEXORA</h3>
+                    <p class="footer-brand-desc">The next-generation academic management system built for modern institutions. Secure, scalable, and cloud-native.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="https://twitter.com/chatakeinnoworks" target="_blank" style="color: #A3A3A3;">Twitter</a>
+                        <a href="https://linkedin.com/company/chatakeinnoworks" target="_blank" style="color: #A3A3A3;">LinkedIn</a>
+                        <a href="https://github.com/aakashchatake" target="_blank" style="color: #A3A3A3;">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-grid" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+                <div>
+                    <h4>Product</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;"><a href="#capabilities">Features</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#platform">Platform Access</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#platform">Request Demo</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://nexora.chatakeinnoworks.com" target="_blank">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Resources</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;"><a href="#overview">Documentation</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://aakashchatake.github.io/nexora-platform/#/access" target="_blank">Platform</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://www.chatakeinnoworks.com" target="_blank">Company</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://internship.chatakeinnoworks.com" target="_blank">Internships</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Legal</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;"><a href="#">Privacy Policy</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#">Terms of Service</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#">Security</a></li>
+                        <li style="margin-bottom: 12px;"><a href="mailto:admin@chatakeinnoworks.com">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>About</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;"><a href="https://about.chatakeinnoworks.com" target="_blank">About Chatake</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#">Research Papers</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#">Blog</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p style="margin: 0;">© 2026 Chatake Innoworks Pvt. Ltd. All rights reserved.</p>
+                <p style="margin: 0;">Advancing academic excellence through technology</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
