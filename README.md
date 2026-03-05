@@ -36,11 +36,19 @@ The complete research paper documents:
 
 ---
 
+## 🌐 Published Website
+
+The interactive product showcase for this paper is live:
+
+- **Research Showcase (GitHub Pages):** https://aakashchatake.github.io/nexora-paper/
+
+---
+
 ## 🚀 Live Platform
 
-Experience Nexora in action:
+Nexora platform is launching soon:
 
-- **Live Platform:** https://nexora.chatakeinnoworks.com
+- **Platform URL:** https://nexora.chatakeinnoworks.com *(coming soon — deploying March 9, 2026)*
 - **Platform Access:** https://aakashchatake.github.io/nexora-platform/#/access
 - **Demo Credentials:** Available on platform access page
 
@@ -129,7 +137,7 @@ python3 -m http.server 8000
 ## 🔗 Related Resources
 
 - **Main Website:** https://www.chatakeinnoworks.com
-- **Nexora Marketing:** https://nexora-marketing.chatakeinnoworks.com
+- **Nexora Platform:** https://nexora.chatakeinnoworks.com *(coming soon)*
 - **Internship Portal:** https://internship.chatakeinnoworks.com
 - **GitHub Profile:** https://github.com/aakashchatake
 - **Organization:** Chatake Innoworks Pvt. Ltd.
