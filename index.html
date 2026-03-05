@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexora: Academic ERP SaaS Platform</title>
+    <title>Nexora: Multi-Tenant Cloud-Native Academic ERP | Chatake Innoworks Research</title>
     <style>
         * {
             margin: 0;
@@ -247,21 +247,12 @@
             margin-bottom: 12px;
         }
         
-        .highlight {ff4e6;
+        .highlight {
+            background: #fff4e6;
             padding: 20px;
             border-left: 4px solid #FF6A00;
             border-radius: 4px;
             margin: 20px 0;
-        }
-        
-        footer {
-            background: #0B0B0B;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-            border-top: 3px solid #FF6A00px;
-            margin-top: 60px;
         }
         
         footer p {
@@ -367,8 +358,8 @@
     <!-- Header/Hero -->
     <header>
         <h1>Nexora</h1>
-        <p>A Centralized Academic Management System for Modern Educational Institutions</p>
-        <p style="font-size: 1.05em; opacity: 0.9;">Cloud-native SaaS ERP designed for streamlined institutional workflows, multi-tenant isolation, and role-aware access control</p>
+        <p>A Multi-Tenant Cloud-Native Academic ERP for Institutional Workflow Automation</p>
+        <p style="font-size: 1.05em; opacity: 0.9;">Cloud-native SaaS ERP with multi-tenant isolation, RBAC-driven authorization, and scalable AWS deployment — designed for streamlined institutional operations</p>
         <div class="btn-group">
             <a href="#overview" class="btn btn-primary">Learn More</a>
             <a href="Nexora_Paper_Preview.pdf" class="btn btn-secondary">📄 Research Paper (PDF)</a>
@@ -867,6 +858,52 @@
         </section>
 
         <!-- Team Section -->
+        <!-- Project Implementation -->
+        <section id="implementation">
+            <h2 class="section-title">Project Implementation</h2>
+            <p style="text-align:center;color:#666;max-width:700px;margin:0 auto 40px;">
+                Nexora is engineering-backed — not conceptual. The system is actively developed and deploying March 9, 2026.
+            </p>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;margin-bottom:40px;">
+                <div class="feature-card">
+                    <h3>⚛️ Frontend</h3>
+                    <p>React.js + Next.js — institutional dashboards for admin, faculty, and students with responsive, role-aware UI</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔧 Backend</h3>
+                    <p>Node.js REST API layer with tenant-scoped middleware, JWT authentication, and RBAC enforcement at every endpoint</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🗄️ Database</h3>
+                    <p>PostgreSQL — normalized relational schema with composite TenantID keys, FK constraints, and composite indexes for report queries</p>
+                </div>
+                <div class="feature-card">
+                    <h3>☁️ Cloud (AWS)</h3>
+                    <p>EC2 compute + RDS managed database + S3 document storage, deployed inside VPC with multi-zone availability</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔐 Auth & Security</h3>
+                    <p>JWT tokens carrying role + tenant claims · bcrypt/Argon2 password hashing · TLS everywhere · tenant-aware audit logs</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📦 Deployment</h3>
+                    <p>Multi-tenant SaaS — single application serving multiple institutions with strict logical data isolation per tenant</p>
+                </div>
+            </div>
+
+            <div style="background:#0B0B0B;color:white;border-radius:8px;padding:30px 40px;font-family:monospace;font-size:0.92em;line-height:2;">
+                <div style="color:#FF6A00;font-weight:700;margin-bottom:12px;">Technology Stack</div>
+                <div><span style="color:#FF6A00;">Frontend:</span>  React.js / Next.js</div>
+                <div><span style="color:#FF6A00;">Backend:</span>   Node.js (REST API)</div>
+                <div><span style="color:#FF6A00;">Database:</span>  PostgreSQL (normalized, tenant-scoped)</div>
+                <div><span style="color:#FF6A00;">Cloud:</span>     AWS — EC2 · RDS · S3 · VPC</div>
+                <div><span style="color:#FF6A00;">Auth:</span>      JWT + RBAC (role &amp; tenant claims)</div>
+                <div><span style="color:#FF6A00;">Security:</span>  bcrypt/Argon2 · TLS · Audit Logs</div>
+                <div><span style="color:#FF6A00;">Deployment:</span>Multi-tenant SaaS — shared application, isolated data</div>
+            </div>
+        </section>
+
         <section class="team-section">
             <h2 class="section-title">Research & Development Team</h2>
             
@@ -903,9 +940,40 @@
                 
                 <div class="guide-card">
                     <h3>Akash S. Chatake</h3>
-                    <p class="team-role">Project Guide & Corresponding Author</p>
-                    <p class="team-role">Lecturer</p>
+                    <p class="team-role">Project Guide &amp; Corresponding Author</p>
+                    <p class="team-role">Lecturer — Department of Artificial Intelligence &amp; Machine Learning</p>
+                    <p class="team-role" style="opacity:0.8;">Shri Siddheshwar Women's Polytechnic, Solapur, Maharashtra, India</p>
                     <p class="team-email">aakashchtake@gmail.com</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Research Extensions -->
+        <section id="ai-extensions" style="background: linear-gradient(135deg, #0B0B0B 0%, #1a1a1a 100%); color: white;">
+            <h2 class="section-title" style="color:#FF6A00;">AI Research Extensions</h2>
+            <p style="text-align:center;opacity:0.85;max-width:700px;margin:0 auto 40px;">
+                Nexora is positioned as an AIML research platform. The following AI-driven modules form the forward research roadmap.
+            </p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;">
+                <div style="background:rgba(255,106,0,0.08);border:1px solid rgba(255,106,0,0.3);border-radius:8px;padding:25px;">
+                    <div style="color:#FF6A00;font-size:1.6em;margin-bottom:10px;">📈</div>
+                    <h3 style="color:white;margin-bottom:10px;">Predictive Attendance Modeling</h3>
+                    <p style="opacity:0.75;font-size:0.9em;">Forecast attendance trends and flag at-risk students at course-level using time-series models trained on historical records.</p>
+                </div>
+                <div style="background:rgba(255,106,0,0.08);border:1px solid rgba(255,106,0,0.3);border-radius:8px;padding:25px;">
+                    <div style="color:#FF6A00;font-size:1.6em;margin-bottom:10px;">🎓</div>
+                    <h3 style="color:white;margin-bottom:10px;">Academic Performance Forecasting</h3>
+                    <p style="opacity:0.75;font-size:0.9em;">Predict grade outcomes from formative assessment patterns, attendance signals, and engagement data — enabling early faculty intervention.</p>
+                </div>
+                <div style="background:rgba(255,106,0,0.08);border:1px solid rgba(255,106,0,0.3);border-radius:8px;padding:25px;">
+                    <div style="color:#FF6A00;font-size:1.6em;margin-bottom:10px;">⚠️</div>
+                    <h3 style="color:white;margin-bottom:10px;">Dropout Risk Detection</h3>
+                    <p style="opacity:0.75;font-size:0.9em;">Risk scoring using longitudinal academic and behavioral signals to surface intervention candidates before withdrawal occurs.</p>
+                </div>
+                <div style="background:rgba(255,106,0,0.08);border:1px solid rgba(255,106,0,0.3);border-radius:8px;padding:25px;">
+                    <div style="color:#FF6A00;font-size:1.6em;margin-bottom:10px;">🤖</div>
+                    <h3 style="color:white;margin-bottom:10px;">Intelligent Academic Analytics</h3>
+                    <p style="opacity:0.75;font-size:0.9em;">Automated cohort-level insights for administrators — anomaly detection in records, policy impact analysis, and adaptive recommendations.</p>
                 </div>
             </div>
         </section>
@@ -926,7 +994,7 @@
                 </div>
                 
                 <div style="background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%); padding: 30px; border-radius: 8px; text-align: center;">
-                    <div style="font-size: 2.5em; font-weight="bold" color: #b45309; margin-bottom: 10px;">4</div>
+                    <div style="font-size: 2.5em; font-weight: bold; color: #b45309; margin-bottom: 10px;">4</div>
                     <div style="color: #b45309; font-size: 0.95em;">Deployment Layers</div>
                 </div>
                 
@@ -954,6 +1022,33 @@
                 <span class="badge">Scalability</span>
                 <span class="badge">Education Technology</span>
                 <span class="badge">Institutional Management</span>
+            </div>
+        </section>
+
+        <!-- Citation -->
+        <section id="citation" style="background:#f8f9fa;">
+            <h2 class="section-title">Cite This Work</h2>
+            <p style="text-align:center;color:#666;margin-bottom:30px;">Use the following format to cite this research paper.</p>
+
+            <div style="background:#0B0B0B;color:white;border-radius:8px;padding:30px 40px;font-family:monospace;font-size:0.88em;line-height:1.8;margin-bottom:30px;">
+                <div style="color:#FF6A00;font-weight:700;margin-bottom:14px;">Plain Text Citation</div>
+                <div>Awate, S., Bhenki, A., Puranik, S., Tekale, D., Tellur, R., &amp; Chatake, A. S. (2026).</div>
+                <div style="margin-left:20px;"><em>Nexora: A Multi-Tenant Cloud-Native Academic ERP for Institutional Workflow Automation.</em></div>
+                <div style="margin-left:20px;">Chatake Innoworks Research Initiative. Solapur, Maharashtra, India.</div>
+            </div>
+
+            <div style="background:#0B0B0B;color:white;border-radius:8px;padding:30px 40px;font-family:monospace;font-size:0.82em;line-height:1.8;">
+                <div style="color:#FF6A00;font-weight:700;margin-bottom:14px;">BibTeX</div>
+                <div style="color:#A3A3A3;">@article{nexora2026,</div>
+                <div style="color:#A3A3A3;margin-left:20px;">title     = {Nexora: A Multi-Tenant Cloud-Native Academic ERP for Institutional Workflow Automation},</div>
+                <div style="color:#A3A3A3;margin-left:20px;">author    = {Awate, Sharvari and Bhenki, Aakanksha and Puranik, Sakshi and</div>
+                <div style="color:#A3A3A3;margin-left:60px;">Tekale, Durvankshi and Tellur, Rutuja and Chatake, Akash S.},</div>
+                <div style="color:#A3A3A3;margin-left:20px;">year      = {2026},</div>
+                <div style="color:#A3A3A3;margin-left:20px;">institution = {Shri Siddheshwar Women's Polytechnic, Solapur},</div>
+                <div style="color:#A3A3A3;margin-left:20px;">organization = {Chatake Innoworks Pvt. Ltd.},</div>
+                <div style="color:#A3A3A3;margin-left:20px;">url       = {https://aakashchatake.github.io/nexora-paper/},</div>
+                <div style="color:#A3A3A3;margin-left:20px;">note      = {Research paper and interactive showcase published at GitHub Pages}</div>
+                <div style="color:#A3A3A3;">}</div>
             </div>
         </section>
 
