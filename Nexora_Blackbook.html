@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA: Final Blackbook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base Academic Styling */
+        body {
+            background-color: #d1d5db; /* gray-300 */
+            color: #000;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Non-printable Control Bar */
+        #controls {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #1f2937;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* A4 Page Styling */
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 60px auto 20px auto; /* 60px top margin to account for fixed header */
+            background: #fff;
+            padding: 25mm 20mm;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            page-break-after: always;
+            position: relative;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        .a4-page:not(:first-of-type) {
+            margin-top: 20px;
+        }
+
+        /* Typography */
+        h1.page-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        h2.main-title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        h3.section-title {
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p.justified-text {
+            text-align: justify;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        ul, ol {
+            text-align: justify;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            font-size: 1.1rem;
+        }
+
+        li { margin-bottom: 0.5rem; }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+        
+        th, td {
+            border: 1px solid #000;
+            padding: 8px 12px;
+            text-align: center;
+        }
+
+        th { background-color: #f9fafb; font-weight: bold; }
+        .text-left-cell { text-align: left; }
+
+        /* Signatures */
+        .signature-block {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+        }
+
+        .signature {
+            text-align: center;
+            width: 30%;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Print Media Queries */
+        @media print {
+            body { background-color: #fff; margin: 0; }
+            #controls { display: none; }
+            .a4-page {
+                margin: 0;
+                padding: 15mm;
+                box-shadow: none;
+                width: auto;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <div id="controls">
+        <div class="text-lg font-semibold tracking-wide">Nexora Final Blackbook Preview</div>
+        <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded shadow">
+            🖨️ Print / Save as PDF
+        </button>
+    </div>
+
+    <!-- PAGE 1: TITLE PAGE -->
+    <div class="a4-page flex flex-col justify-center items-center">
+        <h1 class="page-title mt-10">A Project Report On</h1>
+        <h2 class="main-title text-2xl">“NEXORA: A Centralized Academic Management System”</h2>
+        
+        <p class="text-center font-bold text-lg mb-6">DIPLOMA IN INFORMATION TECHNOLOGY</p>
+        <p class="text-center font-bold text-lg mb-2">SUBMITTED BY</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Enrollment Number</th>
+                    <th>Roll Number</th>
+                    <th>Student Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1.</td><td>23212830479</td><td>3607</td><td class="text-left-cell">Ms. Awate Sharvari</td></tr>
+                <tr><td>2.</td><td>23212830482</td><td>3610</td><td class="text-left-cell">Ms. Bhenki Aakanksha</td></tr>
+                <tr><td>3.</td><td>23212830521</td><td>3646</td><td class="text-left-cell">Ms. Puranik Sakshi</td></tr>
+                <tr><td>4.</td><td>23212830529</td><td>3654</td><td class="text-left-cell">Ms. Tekale Durvankshi</td></tr>
+                <tr><td>5.</td><td>23212830530</td><td>3655</td><td class="text-left-cell">Ms. Tellur Rutuja</td></tr>
+            </tbody>
+        </table>
+
+        <div class="mt-8 mb-8 text-center">
+            <p class="font-bold text-lg">UNDER THE GUIDANCE OF</p>
+            <p class="font-bold text-xl mt-2">Mr. Chatake A. S.</p>
+        </div>
+
+        <div class="mt-auto text-center font-bold text-lg leading-relaxed">
+            <p>DEPARTMENT OF INFORMATION TECHNOLOGY</p>
+            <p class="text-xl">SHRI SIDDHESHWAR WOMEN’S POLYTECHNIC, SOLAPUR - 413 002</p>
+            <p class="text-base font-normal">(All 5 Programmes Accredited by NBA, New Delhi)</p>
+            <p class="mt-2">Shri Siddheshwar Devasthan Trust’s</p>
+            <p>2025-26</p>
+        </div>
+    </div>
+
+    <!-- PAGE 2: CERTIFICATE -->
+    <div class="a4-page">
+        <h1 class="page-title mb-10">CERTIFICATE</h1>
+        
+        <p class="justified-text">This is to certify that the Project Report entitled <strong>“NEXORA: A Centralized Academic Management System”</strong> has been successfully completed by the following students:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Enrollment Number</th>
+                    <th>Roll Number</th>
+                    <th>Student Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1.</td><td>23212830479</td><td>3607</td><td class="text-left-cell">Ms. Awate Sharvari</td></tr>
+                <tr><td>2.</td><td>23212830482</td><td>3610</td><td class="text-left-cell">Ms. Bhenki Aakanksha</td></tr>
+                <tr><td>3.</td><td>23212830521</td><td>3646</td><td class="text-left-cell">Ms. Puranik Sakshi</td></tr>
+                <tr><td>4.</td><td>23212830529</td><td>3654</td><td class="text-left-cell">Ms. Tekale Durvankshi</td></tr>
+                <tr><td>5.</td><td>23212830530</td><td>3655</td><td class="text-left-cell">Ms. Tellur Rutuja</td></tr>
+            </tbody>
+        </table>
+
+        <p class="justified-text mt-6">This project is submitted in partial fulfillment of the requirements for the award of the <strong>Diploma in Information Technology</strong>, as prescribed by the Maharashtra State Board of Technical Education (MSBTE), Mumbai, under the subject Capstone Project Execution (22060) during the academic year 2025-26.</p>
+
+        <p class="justified-text">The project has been carried out under my supervision and guidance. It is a record of their original work and meets the required academic standards.</p>
+
+        <div class="signature-block">
+            <div class="signature">
+                <br>
+                <p>Mr. Chatake A. S.</p>
+                <p class="font-normal text-sm">(Project Guide)</p>
+            </div>
+            <div class="signature">
+                <br>
+                <p>Head of Department</p>
+                <p class="font-normal text-sm">(Information Technology)</p>
+            </div>
+            <div class="signature">
+                <br>
+                <p>Principal</p>
+                <p class="font-normal text-sm">(Shri Siddheshwar Women’s Polytechnic)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: ACKNOWLEDGEMENT -->
+    <div class="a4-page">
+        <h1 class="page-title mb-10">ACKNOWLEDGEMENT</h1>
+        
+        <p class="justified-text">We would like to express our deepest sense of gratitude to all those who have contributed to the successful completion of our capstone project, <strong>“NEXORA: A Centralized Academic Management System.”</strong></p>
+
+        <p class="justified-text">First and foremost, we express our sincere thanks to our respected Project Guide, <strong>Mr. Chatake A. S.</strong>, for his continuous support, technical guidance, and valuable feedback throughout the development of this project. His expertise and encouragement have been instrumental in shaping this endeavor.</p>
+
+        <p class="justified-text">We are also profoundly grateful to the <strong>Head of the Information Technology Department</strong>, for providing the necessary infrastructure, resources, and an encouraging academic environment.</p>
+
+        <p class="justified-text">We extend our sincere appreciation to our honorable <strong>Principal</strong> and the management of <strong>Shri Siddheshwar Women’s Polytechnic, Solapur</strong>, for giving us the opportunity to undertake this project and for their visionary leadership.</p>
+
+        <p class="justified-text">Lastly, we would like to thank our faculty members, lab assistants, classmates, and family members for their direct and indirect support, cooperation, and motivation during the completion of this capstone project.</p>
+    </div>
+
+    <!-- PAGE 4: ABSTRACT -->
+    <div class="a4-page">
+        <h1 class="page-title mb-10">ABSTRACT</h1>
+        
+        <p class="justified-text">The digitalization of educational workflows is essential for modern academic institutions to function efficiently. Traditional, paper-based, or fragmented digital methods of managing student records, attendance, and examinations often lead to data redundancy, manual errors, and communication gaps between staff and students. To address these challenges, this project introduces <strong>NEXORA: A Centralized Academic Management System</strong>.</p>
+
+        <p class="justified-text">Nexora is a comprehensive, web-based platform engineered to streamline institutional workflows. It integrates multiple administrative functions into a unified dashboard, establishing secure Role-Based Access Control (RBAC) for three primary user categories: Administrators, Faculty/Staff, and Students. The system allows faculty members to efficiently manage daily attendance, upload study materials, and process student grades. Simultaneously, it empowers students with a self-service portal to track their academic performance, access resources, and view critical institutional notices in real time.</p>
+
+        <p class="justified-text">Developed utilizing a robust technology stack comprising HTML, CSS, JavaScript for the frontend, and PHP with MySQL for the backend, Nexora ensures high data integrity and a responsive user experience. By digitizing and centralizing academic records, Nexora eliminates redundant paperwork, reduces administrative overhead, and provides a reliable, scalable solution for effective institutional management.</p>
+    </div>
+
+    <!-- PAGE 5: TABLE OF CONTENTS -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">TABLE OF CONTENTS</h1>
+        
+        <table class="w-[80%] mx-auto">
+            <thead>
+                <tr>
+                    <th class="w-24">Sr. No.</th>
+                    <th class="text-left-cell">Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td class="text-left-cell">Title Page</td></tr>
+                <tr><td>2</td><td class="text-left-cell">Certificate Page</td></tr>
+                <tr><td>3</td><td class="text-left-cell">Acknowledgement</td></tr>
+                <tr><td>4</td><td class="text-left-cell">Abstract</td></tr>
+                <tr><td>5</td><td class="text-left-cell">Table of Contents</td></tr>
+                <tr><td>6</td><td class="text-left-cell">List of Figures</td></tr>
+                <tr><td>7</td><td class="text-left-cell">List of Tables</td></tr>
+                <tr><td>8</td><td class="text-left-cell">Programme Outcomes (POs)</td></tr>
+                <tr><td>9</td><td class="text-left-cell">Programme Specific Outcomes (PSOs)</td></tr>
+                <tr><td>10</td><td class="text-left-cell">Course Outcomes (COs)</td></tr>
+                <tr><td>11</td><td class="text-left-cell">CO–PO Mapping Table</td></tr>
+                <tr><td>12</td><td class="text-left-cell">Introduction</td></tr>
+                <tr><td>13</td><td class="text-left-cell">Literature Survey</td></tr>
+                <tr><td>14</td><td class="text-left-cell">System Requirements</td></tr>
+                <tr><td>15</td><td class="text-left-cell">System Design</td></tr>
+                <tr><td>16</td><td class="text-left-cell">Implementation & Testing</td></tr>
+                <tr><td>17</td><td class="text-left-cell">Results and Discussion</td></tr>
+                <tr><td>18</td><td class="text-left-cell">Conclusion</td></tr>
+                <tr><td>19</td><td class="text-left-cell">Future Scope</td></tr>
+                <tr><td>20</td><td class="text-left-cell">References</td></tr>
+                <tr><td>21</td><td class="text-left-cell">Appendix</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGE 6: LISTS -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">LIST OF FIGURES</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th class="w-32">Figure No.</th>
+                    <th class="text-left-cell">Figure Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1.1</td><td class="text-left-cell">Existing Manual System Workflow</td></tr>
+                <tr><td>1.2</td><td class="text-left-cell">Proposed Nexora System Architecture</td></tr>
+                <tr><td>1.3</td><td class="text-left-cell">Use Case Diagram of Nexora</td></tr>
+                <tr><td>1.4</td><td class="text-left-cell">Entity Relationship (ER) Diagram</td></tr>
+                <tr><td>1.5</td><td class="text-left-cell">Data Flow Diagram (Level 0 and 1)</td></tr>
+                <tr><td>1.6</td><td class="text-left-cell">Nexora Secure Login Portal</td></tr>
+                <tr><td>1.7</td><td class="text-left-cell">Administrator Dashboard Interface</td></tr>
+                <tr><td>1.8</td><td class="text-left-cell">Faculty/Staff Dashboard and Attendance Module</td></tr>
+                <tr><td>1.9</td><td class="text-left-cell">Student Dashboard Interface</td></tr>
+            </tbody>
+        </table>
+
+        <h1 class="page-title mb-6 mt-16">LIST OF TABLES</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th class="w-32">Table No.</th>
+                    <th class="text-left-cell">Table Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1.1</td><td class="text-left-cell">CO-PO Mapping Matrix</td></tr>
+                <tr><td>1.2</td><td class="text-left-cell">Hardware Requirements Specifications</td></tr>
+                <tr><td>1.3</td><td class="text-left-cell">Software Requirements Specifications</td></tr>
+                <tr><td>1.4</td><td class="text-left-cell">Database Schema - User Credentials Table</td></tr>
+                <tr><td>1.5</td><td class="text-left-cell">Database Schema - Attendance Log Table</td></tr>
+                <tr><td>1.6</td><td class="text-left-cell">System Testing (White Box and Black Box Test Cases)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGE 7: POS & PSOS -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">PROGRAMME OUTCOMES (POs)</h1>
+        <ol>
+            <li><strong>Basic and Discipline Specific Knowledge:</strong> Apply knowledge of basic mathematics, science, and engineering fundamentals and engineering specialization to solve the engineering problems.</li>
+            <li><strong>Problem Analysis:</strong> Identify and analyze well-defined engineering problems using codified standard methods.</li>
+            <li><strong>Design/Development of Solutions:</strong> Design solutions for well-defined technical problems and assist with the design of systems components or processes to meet specified needs.</li>
+            <li><strong>Engineering Tools, Experimentation and Testing:</strong> Apply modern engineering tools and appropriate technique to conduct standard tests and measurements.</li>
+            <li><strong>Engineering Practices for Society, Sustainability and Environment:</strong> Apply appropriate technology in context of society, sustainability, environment and ethical practices.</li>
+            <li><strong>Project Management:</strong> Use engineering management principles individually, as a team member or a leader to manage projects and effectively communicate about well-defined engineering activities.</li>
+            <li><strong>Life-long Learning:</strong> Ability to analyze individual needs and engage in updating in the context of technological changes.</li>
+        </ol>
+
+        <h1 class="page-title mb-6 mt-16">PROGRAMME SPECIFIC OUTCOMES (PSOs)</h1>
+        <ol>
+            <li><strong>Software Development:</strong> Apply logic, concepts, and algorithms to design and develop software applications using modern programming languages and web technologies.</li>
+            <li><strong>Database & Network Management:</strong> Design, deploy, and maintain robust database systems and secure computer networks to facilitate efficient data exchange and management.</li>
+        </ol>
+    </div>
+
+    <!-- PAGE 8: COS & MAPPING -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">COURSE OUTCOMES (COs)</h1>
+        <p class="justified-text font-bold">Upon successful completion of the Capstone Project, students will be able to:</p>
+        <ul class="list-disc">
+            <li><strong>CO1:</strong> Analyze the requirements and constraints of the academic management processes to formulate a technical problem statement.</li>
+            <li><strong>CO2:</strong> Design a structured software architecture and relational database schema for centralized data management.</li>
+            <li><strong>CO3:</strong> Develop dynamic web modules for administrators, faculty, and students utilizing a web technology stack (PHP/MySQL).</li>
+            <li><strong>CO4:</strong> Perform comprehensive system testing to ensure functional accuracy, security, and reliability of the application.</li>
+            <li><strong>CO5:</strong> Work effectively as a team member and prepare a professional academic project report.</li>
+        </ul>
+
+        <h1 class="page-title mb-6 mt-12">CO–PO MAPPING TABLE</h1>
+        <p class="text-center italic text-gray-700 mb-4">Mapping Levels: 1 - Slight (Low), 2 - Moderate (Medium), 3 - Substantial (High), "-" - No Mapping</p>
+        
+        <table class="text-sm">
+            <thead>
+                <tr>
+                    <th class="text-left-cell">Course Outcomes (COs)</th>
+                    <th>PO1</th><th>PO2</th><th>PO3</th><th>PO4</th><th>PO5</th><th>PO6</th><th>PO7</th><th>PSO1</th><th>PSO2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="text-left-cell font-bold">CO1: Analyze Requirements</td><td>3</td><td>3</td><td>2</td><td>1</td><td>2</td><td>2</td><td>2</td><td>3</td><td>1</td></tr>
+                <tr><td class="text-left-cell font-bold">CO2: Design Architecture</td><td>3</td><td>2</td><td>3</td><td>2</td><td>1</td><td>2</td><td>2</td><td>3</td><td>3</td></tr>
+                <tr><td class="text-left-cell font-bold">CO3: Develop Modules</td><td>3</td><td>2</td><td>3</td><td>3</td><td>1</td><td>3</td><td>2</td><td>3</td><td>2</td></tr>
+                <tr><td class="text-left-cell font-bold">CO4: Perform Testing</td><td>2</td><td>2</td><td>2</td><td>3</td><td>1</td><td>2</td><td>2</td><td>3</td><td>2</td></tr>
+                <tr><td class="text-left-cell font-bold">CO5: Teamwork & Report</td><td>1</td><td>1</td><td>1</td><td>1</td><td>2</td><td>3</td><td>3</td><td>1</td><td>1</td></tr>
+                <tr class="bg-gray-100"><td class="text-left-cell font-bold">Average Mapping</td><td class="font-bold">2.4</td><td class="font-bold">2.0</td><td class="font-bold">2.2</td><td class="font-bold">2.0</td><td class="font-bold">1.4</td><td class="font-bold">2.4</td><td class="font-bold">2.2</td><td class="font-bold">2.6</td><td class="font-bold">1.8</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGE 9: INTRODUCTION -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">12. INTRODUCTION</h1>
+        
+        <h3 class="section-title">12.1 Background</h3>
+        <p class="justified-text">The rapid evolution of Information Technology has transformed operational methodologies across all sectors, particularly in education. Traditionally, academic institutions have relied on manual ledger systems or decentralized spreadsheet software to manage core activities such as attendance tracking, result declaration, and resource distribution. As institutions expand, managing this voluminous data manually becomes highly inefficient, resource-intensive, and prone to human error. There is an imperative need for digital ecosystems that synchronize institutional data into a single, cohesive workflow.</p>
+        
+        <h3 class="section-title">12.2 Problem Statement</h3>
+        <p class="justified-text">Current academic management processes in many institutions suffer from severe fragmentation. Teachers maintain independent attendance sheets, administrative staff handle separate student registries, and notice boards are purely physical. This disjointed approach leads to:</p>
+        <ul class="list-disc">
+            <li>High data redundancy and data inconsistency across different departments.</li>
+            <li>Extensive delays in report generation, calculation of term work, and information retrieval.</li>
+            <li>Lack of transparency and real-time updates for students regarding their academic standing.</li>
+            <li>Risk of physical data loss, damage, or unauthorized access to sensitive records.</li>
+        </ul>
+
+        <h3 class="section-title">12.3 Objectives</h3>
+        <p class="justified-text">The primary objectives of the Nexora project are:</p>
+        <ol>
+            <li>To develop a centralized web-based platform that unifies administrative and academic data.</li>
+            <li>To implement a secure Role-Based Access Control (RBAC) system for Administrators, Faculty/Staff, and Students.</li>
+            <li>To digitize and automate time-consuming processes like attendance tracking, notice distribution, and grade entry.</li>
+            <li>To provide a user-friendly interface that facilitates seamless communication and resource sharing.</li>
+        </ol>
+
+        <h3 class="section-title">12.4 Scope</h3>
+        <p class="justified-text">The scope of Nexora encompasses the core academic lifecycle within a polytechnic or engineering institution. It covers secure user authentication, department and course management, dynamic attendance tracking, academic result uploading, and the distribution of digital study materials. The system is designed to be accessible via modern web browsers, ensuring ease of use without the need for specialized hardware.</p>
+    </div>
+
+    <!-- PAGE 10: LITERATURE SURVEY -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">13. LITERATURE SURVEY</h1>
+        
+        <h3 class="section-title">13.1 Existing Systems</h3>
+        <p class="justified-text">A review of current methodologies reveals that academic management typically falls into two categories:</p>
+        <ol>
+            <li><strong>Manual Ledger Systems:</strong> Heavily reliant on paper files, physical notice boards, and manual calculator-based tabulations. While cheap to establish initially, they are highly inefficient, unscalable, and environmentally unsustainable.</li>
+            <li><strong>Fragmented Digital Tools:</strong> Institutions often use disjointed software tools (e.g., MS Excel for marks, WhatsApp groups for notices, Google Drive for notes). This results in decentralized data that cannot interact cohesively, requiring staff to perform duplicate data entry.</li>
+        </ol>
+
+        <h3 class="section-title">13.2 Limitations of Existing ERPs</h3>
+        <p class="justified-text">While some commercial Enterprise Resource Planning (ERP) systems exist in the market, they frequently present the following challenges for polytechnics and smaller institutions:</p>
+        <ul class="list-disc">
+            <li><strong>High Procurement Costs:</strong> Commercial systems require expensive licenses, setup fees, and recurring subscription charges.</li>
+            <li><strong>Complex User Interfaces:</strong> Legacy ERPs often possess steep learning curves and cluttered interfaces, which discourages faculty adoption and slows down daily operations.</li>
+            <li><strong>Lack of Customization:</strong> Commercial software is built as rigid monolithic structures that do not easily adapt to specific institutional or board regulations (such as MSBTE grading structures).</li>
+            <li><strong>Delayed Synchronization:</strong> Many older systems operate on batch-processing rather than real-time syncing, meaning data updates are not immediately reflected across all user dashboards.</li>
+        </ul>
+        <p class="justified-text mt-4">Nexora addresses these limitations directly by offering a lightweight, cost-effective, custom-tailored, and highly responsive web application built specifically for streamlined academic workflows.</p>
+    </div>
+
+    <!-- PAGE 11: SYSTEM REQUIREMENTS -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">14. SYSTEM REQUIREMENTS</h1>
+        <p class="justified-text">To ensure the smooth operation, deployment, and optimal performance of the Nexora system, the following hardware and software configurations are required.</p>
+        
+        <h3 class="section-title mt-8">14.1 Hardware Requirements</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="text-left-cell">Component</th>
+                    <th class="text-left-cell">Minimum Specification</th>
+                    <th class="text-left-cell">Recommended Specification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="text-left-cell font-bold">Processor</td><td class="text-left-cell">Intel Core i3 (or equivalent AMD)</td><td class="text-left-cell">Intel Core i5 or higher</td></tr>
+                <tr><td class="text-left-cell font-bold">RAM</td><td class="text-left-cell">4 GB</td><td class="text-left-cell">8 GB</td></tr>
+                <tr><td class="text-left-cell font-bold">Storage</td><td class="text-left-cell">256 GB HDD / SSD</td><td class="text-left-cell">512 GB Solid State Drive (SSD)</td></tr>
+                <tr><td class="text-left-cell font-bold">Network</td><td class="text-left-cell">Basic Internet Connection</td><td class="text-left-cell">High-Speed Broadband / Wi-Fi</td></tr>
+                <tr><td class="text-left-cell font-bold">Display</td><td class="text-left-cell">Standard Monitor (1024x768 resolution)</td><td class="text-left-cell">1080p Full HD Display</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="section-title mt-10">14.2 Software Requirements</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="text-left-cell w-1/3">Component</th>
+                    <th class="text-left-cell">Specification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="text-left-cell font-bold">Operating System</td><td class="text-left-cell">Windows 10/11, Linux (Ubuntu), or macOS</td></tr>
+                <tr><td class="text-left-cell font-bold">Web Server Environment</td><td class="text-left-cell">XAMPP or WAMP Server (Apache HTTP Server)</td></tr>
+                <tr><td class="text-left-cell font-bold">Database Management</td><td class="text-left-cell">MySQL (managed via phpMyAdmin)</td></tr>
+                <tr><td class="text-left-cell font-bold">Frontend Technologies</td><td class="text-left-cell">HTML5, CSS3, JavaScript (ES6+), Bootstrap Framework</td></tr>
+                <tr><td class="text-left-cell font-bold">Backend Technology</td><td class="text-left-cell">PHP (Hypertext Preprocessor) Version 7.4 or higher</td></tr>
+                <tr><td class="text-left-cell font-bold">IDE / Code Editor</td><td class="text-left-cell">Visual Studio Code, Sublime Text, or Notepad++</td></tr>
+                <tr><td class="text-left-cell font-bold">Web Browser</td><td class="text-left-cell">Google Chrome, Mozilla Firefox, or Microsoft Edge</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGE 12: SYSTEM DESIGN -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">15. SYSTEM DESIGN</h1>
+        
+        <h3 class="section-title">15.1 Architecture Description</h3>
+        <p class="justified-text">Nexora follows a standard and robust 3-tier Client-Server architecture:</p>
+        <ol>
+            <li><strong>Presentation Tier (Client Layer):</strong> The user interface built with HTML, CSS, and JS. It runs on the user's web browser, handling input validation, layout structure, and dynamic DOM rendering to ensure a smooth user experience.</li>
+            <li><strong>Application Tier (Server Layer):</strong> The core business logic processed by the Apache server using PHP. It securely handles user requests, session management, file uploads, and acts as the bridge between the user interface and the database.</li>
+            <li><strong>Data Tier (Database Layer):</strong> The MySQL database where all persistent institutional data (user credentials, attendance logs, exam results) are systematically stored, indexed, and queried.</li>
+        </ol>
+
+        <h3 class="section-title">15.2 Modules Description</h3>
+        <p class="justified-text">The system operates on a strict Role-Based Access Control (RBAC) model, divided into three core user modules:</p>
+        
+        <h4 class="font-bold text-lg mt-4 mb-2">1. Admin Module</h4>
+        <p class="justified-text">The Administrator holds the highest level of system privileges. Functions include:</p>
+        <ul class="list-disc">
+            <li>Creating, updating, and removing Faculty and Student accounts.</li>
+            <li>Managing institutional structure, such as departments, semesters, and course allocations.</li>
+            <li>Publishing institutional announcements, global notices, and holiday schedules.</li>
+            <li>Monitoring overall system activity and ensuring database integrity.</li>
+        </ul>
+
+        <h4 class="font-bold text-lg mt-4 mb-2">2. Faculty / Staff Module</h4>
+        <p class="justified-text">Faculty members are provided with dedicated tools to manage their respective classes efficiently:</p>
+        <ul class="list-disc">
+            <li><strong>Attendance Tracking:</strong> Dynamic roster generation to seamlessly mark daily student attendance.</li>
+            <li><strong>Academics & Grading:</strong> Uploading marks for internal assessments and external examinations.</li>
+            <li><strong>Resource Distribution:</strong> Securely uploading study materials, assignments, and practical manuals for student access.</li>
+            <li><strong>Profile Management:</strong> Updating personal and professional faculty details.</li>
+        </ul>
+
+        <h4 class="font-bold text-lg mt-4 mb-2">3. Student Module</h4>
+        <p class="justified-text">Students access a personalized, read-only dashboard to track their academic journey:</p>
+        <ul class="list-disc">
+            <li>Viewing subject-wise daily and cumulative attendance percentages.</li>
+            <li>Accessing term test marks and final examination results.</li>
+            <li>Downloading assignments, syllabi, and study materials provided by their respective faculty.</li>
+            <li>Viewing personal profile details and reading real-time institutional notices.</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 13: IMPLEMENTATION & TESTING -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">16. IMPLEMENTATION & TESTING</h1>
+        
+        <h3 class="section-title">16.1 Technologies Used</h3>
+        <ul class="list-disc">
+            <li><strong>Frontend:</strong> The User Interface was crafted using <strong>HTML5</strong> for semantic page structure, <strong>CSS3</strong> for aesthetic styling, and <strong>JavaScript</strong> for client-side interactivity.</li>
+            <li><strong>Backend:</strong> <strong>PHP</strong> was utilized to construct the server-side logic, handle secure form submissions, and manage encrypted user sessions.</li>
+            <li><strong>Database:</strong> <strong>MySQL</strong> was employed to design a normalized relational database, executing robust SQL queries (SELECT, INSERT, UPDATE, DELETE) to manage academic records.</li>
+        </ul>
+
+        <h3 class="section-title mt-6">16.2 System Working Flow</h3>
+        <ol>
+            <li>The user lands on the secure Nexora portal and inputs their credentials.</li>
+            <li>The PHP backend authenticates the credentials against hashed passwords in the MySQL database.</li>
+            <li>Upon success, a secure session is initiated, routing the user to the Admin, Faculty, or Student dashboard.</li>
+            <li>Data interaction (e.g., Faculty inserting attendance) triggers an SQL <code>INSERT</code> query.</li>
+            <li>Students subsequently log in, and a <code>SELECT</code> query retrieves and displays the updated data in real time.</li>
+        </ol>
+
+        <h3 class="section-title mt-6">16.3 System Testing</h3>
+        <p class="justified-text">Software testing was conducted from two distinct perspectives to ensure reliability:</p>
+        <ul class="list-disc">
+            <li><strong>White Box Testing:</strong> Ensuring the internal logic, database queries, and PHP conditional loops function correctly without syntax or logical errors.</li>
+            <li><strong>Black Box Testing:</strong> Validating the external software functionality based on user inputs and expected outputs without looking at the internal code structure.</li>
+        </ul>
+
+        <p class="font-bold text-lg mt-4 mb-2">Sample Test Cases Executed:</p>
+        <table class="text-sm">
+            <thead>
+                <tr>
+                    <th>Test No.</th>
+                    <th class="text-left-cell">Module / Button</th>
+                    <th class="text-left-cell">Action Performed</th>
+                    <th class="text-left-cell">Expected Output</th>
+                    <th class="text-left-cell">Actual Output</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>TC_01</td><td class="text-left-cell">Login Page</td><td class="text-left-cell">Enter valid Username and Password</td><td class="text-left-cell">Redirect to specific user dashboard</td><td class="text-left-cell">Redirected successfully</td><td class="text-green-700 font-bold">Pass</td></tr>
+                <tr><td>TC_02</td><td class="text-left-cell">Login Page</td><td class="text-left-cell">Enter incorrect credentials</td><td class="text-left-cell">Display "Invalid Credentials" error</td><td class="text-left-cell">Error message displayed</td><td class="text-green-700 font-bold">Pass</td></tr>
+                <tr><td>TC_03</td><td class="text-left-cell">Attendance Module</td><td class="text-left-cell">Submit attendance without selecting date</td><td class="text-left-cell">Prevent submission, prompt for date</td><td class="text-left-cell">Submission blocked</td><td class="text-green-700 font-bold">Pass</td></tr>
+                <tr><td>TC_04</td><td class="text-left-cell">File Upload</td><td class="text-left-cell">Upload PDF material (< 5MB)</td><td class="text-left-cell">File saved to server, DB updated</td><td class="text-left-cell">File saved and visible</td><td class="text-green-700 font-bold">Pass</td></tr>
+                <tr><td>TC_05</td><td class="text-left-cell">Session Security</td><td class="text-left-cell">Attempt to access dashboard via URL without login</td><td class="text-left-cell">Redirect back to Login page</td><td class="text-left-cell">Redirected to Login</td><td class="text-green-700 font-bold">Pass</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGE 14: RESULTS -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">17. RESULTS AND DISCUSSION</h1>
+        
+        <h3 class="section-title">17.1 Expected Outcomes Achieved</h3>
+        <p class="justified-text">The development, deployment, and rigorous testing phases of the Nexora system yielded highly satisfactory results, completely fulfilling the objectives outlined in the problem statement. The system successfully integrated Student, Faculty, and Admin functions into a single cohesive, high-performing web application.</p>
+
+        <h3 class="section-title">17.2 Core Benefits Observed</h3>
+        <ul class="list-disc">
+            <li><strong>Elimination of Data Redundancy:</strong> By maintaining a single central database schema, data discrepancies and duplicate entries across different institutional departments were entirely resolved.</li>
+            <li><strong>Significant Time Efficiency:</strong> The administrative time taken by faculty to compile monthly attendance records and generate term reports was drastically reduced compared to legacy manual ledger calculations.</li>
+            <li><strong>Enhanced Academic Transparency:</strong> Students gained 24/7 access to their academic standing. This real-time visibility into attendance shortages and assessment marks fostered a more proactive approach to their studies.</li>
+            <li><strong>Eco-Friendly, Paperless Operations:</strong> The ability to upload and distribute study materials, practical manuals, and assignments digitally significantly reduced paper waste and printing costs for both the institution and the students.</li>
+            <li><strong>High System Reliability:</strong> The system passed all stringent White Box and Black Box testing scenarios. Input sanitization protocols successfully validated data entries, ensuring that unexpected user behavior did not compromise system security or cause application crashes.</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 15: CONCLUSION -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">18. CONCLUSION</h1>
+        <p class="justified-text">The <strong>Nexora</strong> system provides a robust, centralized platform to manage academic and administrative activities within an educational institution. It successfully integrates Student, Staff, Admin, and Office dashboards, allowing users to access and manage critical academic information such as results, assignments, study materials, and personal records securely and efficiently.</p>
+        <p class="justified-text">By digitalizing these historically manual and fragmented processes, Nexora significantly reduces the administrative workload, improves the accessibility and integrity of data, and enhances communication between students, teaching staff, and institutional administration. The successful execution of this capstone project confirms that transitioning to a unified, bespoke web-based application offers a simple, highly reliable, and scalable solution for effective institutional management.</p>
+    </div>
+
+    <!-- PAGE 16: FUTURE SCOPE -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">19. FUTURE SCOPE</h1>
+        <p class="justified-text">While Nexora successfully meets all current institutional requirements as a web-based portal, the underlying architecture is highly scalable and allows for the integration of several advanced features in the future:</p>
+        <ol>
+            <li><strong>Native Mobile Application Integration:</strong> Developing a dedicated Android and iOS application using cross-platform frameworks (like React Native or Flutter) to provide native push notifications for immediate attendance alerts and urgent institutional notices.</li>
+            <li><strong>Parent/Guardian Monitoring Module:</strong> Introducing a separate portal for parents to log in independently. This would allow them to track their ward's academic progress, attendance history, and fee payment status directly.</li>
+            <li><strong>Artificial Intelligence & Analytics:</strong> Implementing machine learning models to analyze historical academic data. This could predict student performance trends and automatically flag students who are at risk of dropping out due to chronic absenteeism or declining grades.</li>
+            <li><strong>Online Fee Payment Gateway:</strong> Integrating secure financial payment APIs (such as Razorpay, BillDesk, or Stripe) to allow students to pay tuition and examination fees directly through the platform, generating automated digital receipts.</li>
+        </ol>
+    </div>
+
+    <!-- PAGE 17: REFERENCES -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">20. REFERENCES</h1>
+        <ol>
+            <li>Welling, L., & Thomson, L. (2016). <em>PHP and MySQL Web Development</em> (5th ed.). Addison-Wesley Professional.</li>
+            <li>Godbole, A. S., & Kahate, A. (2013). <em>Web Technologies: TCP/IP, Web/Java Programming, and Cloud Computing</em> (3rd ed.). McGraw Hill Education.</li>
+            <li>Silberschatz, A., Korth, H. F., & Sudarshan, S. (2019). <em>Database System Concepts</em> (7th ed.). McGraw Hill.</li>
+            <li>Mozilla Developer Network (MDN). <em>HTML, CSS, and JavaScript Official Documentation</em>. Retrieved from https://developer.mozilla.org</li>
+            <li>Oracle Corporation. <em>MySQL Official Documentation</em>. Retrieved from https://dev.mysql.com/doc</li>
+        </ol>
+    </div>
+
+    <!-- PAGE 18: APPENDIX -->
+    <div class="a4-page">
+        <h1 class="page-title mb-6">21. APPENDIX</h1>
+        <p class="italic text-gray-600 mb-6">(Note for Students: Attach the physical or digital images/screenshots of your project execution here prior to final printing.)</p>
+        
+        <h3 class="section-title">Appendix A: Source Code Snippets</h3>
+        <ul class="list-disc">
+            <li>Screenshot of Database Connection String (PHP to MySQL).</li>
+            <li>Screenshot of Authentication Logic and Password Hashing.</li>
+        </ul>
+
+        <h3 class="section-title mt-6">Appendix B: System Interface Screenshots</h3>
+        <ul class="list-disc">
+            <li>Screenshot 1: Nexora Login Page.</li>
+            <li>Screenshot 2: Administrator Dashboard.</li>
+            <li>Screenshot 3: Faculty Dashboard & Attendance Marking Roster.</li>
+            <li>Screenshot 4: Student Portal View (Showing grades and notices).</li>
+        </ul>
+
+        <h3 class="section-title mt-6">Appendix C: Research Paper Publication Certificates</h3>
+        <ul class="list-disc">
+            <li>Certificate of Publication from the <em>International Journal of Scientific Research in Engineering & Management (IJSREM)</em>.</li>
+            <li><strong>Paper Title:</strong> Nexora: A Centralized Academic Management System</li>
+            <li><strong>Published In:</strong> Volume 10 Issue 03 March, 2026</li>
+            <li><strong>ISSN:</strong> 2582-3930 | <strong>Impact Factor:</strong> 8.659</li>
+        </ul>
+    </div>
+
+</body>
+</html>
